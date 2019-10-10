@@ -16,26 +16,26 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": ">=7.3",
         "graylog2/gelf-php": "^1.5",
-        "illuminate/contracts": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0",
-        "illuminate/log": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0",
-        "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0"
+        "illuminate/contracts": "^6.0",
+        "illuminate/log": "^6.0",
+        "illuminate/support": "^6.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^6.0",
-        "orchestra/testbench" : "^3.5",
+        "phpunit/phpunit": "^8.0",
+        "orchestra/testbench" : "^4.0",
         "squizlabs/php_codesniffer": "^3.3.2"
     },
     "autoload": {
         "psr-4": {
-            "Exolnet\\Log\\": "src/"
+            "Exolnet\\Graylog\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Exolnet\\Log\\Tests\\": "tests"
+            "Exolnet\\Graylog\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,6 +49,9 @@
     },
     "extra": {
         "laravel": {
+            "providers": [
+                "Exolnet\\Graylog\\GraylogServiceProvider"
+            ]
         }
     }
 }

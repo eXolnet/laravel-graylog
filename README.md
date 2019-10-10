@@ -5,8 +5,6 @@
 [![Build Status](https://img.shields.io/travis/eXolnet/laravel-graylog/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/laravel-graylog)
 [![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/laravel-graylog.svg?style=flat-square)](https://packagist.org/packages/eXolnet/laravel-graylog)
 
-**Note:** Replace ```Simon Gaudreau``` ```Gandhi11``` ```:author_email``` ```laravel-graylog``` ```This package extends Laravel’s log package to add a graylog channel.``` with their correct values, then delete this line.
-
 This package extends Laravel’s log package to add a graylog channel.
 
 ## Installation
@@ -15,18 +13,6 @@ Require this package with composer:
 
 ```
 composer require exolnet/laravel-graylog
-```
-
-If you don't use package auto-discovery, add the service provider to the ``providers`` array in `config/app.php`:
-
-```
-Exolnet\Skeleton\SkeletonServiceProvider::class
-```
-
-And the facade to the ``facades`` array in `config/app.php`: 
-
-```
-'Skeleton' => Exolnet\Skeleton\SkeletonFacade::class
 ```
 
 ## Usage
