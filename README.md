@@ -5,19 +5,35 @@
 [![Build Status](https://img.shields.io/travis/eXolnet/laravel-graylog/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/laravel-graylog)
 [![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/laravel-graylog.svg?style=flat-square)](https://packagist.org/packages/eXolnet/laravel-graylog)
 
-This package extends Laravel’s log package to add a graylog channel.
+This package extends Laravel’s log package to add a graylog driver.
 
 ## Installation
 
-Require this package with composer:
+1. Require this package with composer:
+    ```
+    composer require exolnet/laravel-graylog
+    ```
+2. If you don't use package auto-discovery, add the service provider to the ``providers`` array in `config/app.php`:
 
-```
-composer require exolnet/laravel-graylog
-```
+    ```
+    Exolnet\Graylog\GraylogServiceProvider::class
+    ```
+3. Add a graylog channel in your `logging.php` configuration file:
 
-## Usage
-
-Explain how to use your package.
+    ```
+    'graylog' => [
+        'driver' => 'graylog',
+        'level' => 'notice',
+        'handler_with' => [
+            'host' => env('GRAYLOG_HOST', 'localhost'),
+            'port' => env('GRAYLOG_PORT', 12201),
+            'extra' => [
+                //
+            ]
+        ],
+    ],
+    ```
+4. Change your `LOG_CHANNEL` for `graylog` or add it to your stack in the `logging.php` configuration file
 
 ## Testing
 
