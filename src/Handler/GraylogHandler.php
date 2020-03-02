@@ -2,7 +2,7 @@
 
 namespace Exolnet\Graylog\Handler;
 
-use Exolnet\Graylog\Processor\GraylogProcessor;
+use Exolnet\Graylog\Processor\ExtraProcessor;
 use Gelf\Publisher;
 use Gelf\Transport\UdpTransport;
 use Monolog\Handler\GelfHandler;
@@ -31,6 +31,6 @@ class GraylogHandler extends GelfHandler
         $this->pushProcessor(new WebProcessor());
         $this->pushProcessor(new MemoryUsageProcessor());
         $this->pushProcessor(new MemoryPeakUsageProcessor());
-        $this->pushProcessor(new GraylogProcessor($extra));
+        $this->pushProcessor(new ExtraProcessor($extra));
     }
 }
