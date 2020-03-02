@@ -28,11 +28,12 @@ class GraylogHandler extends GelfHandler
 
         parent::__construct($publisher, $level, true);
 
+        // Processors will be called in the reverse order that they are listed below
+        $this->pushProcessor(new ExtraProcessor($extra));
+        $this->pushProcessor(new LaravelProcessor());
         $this->pushProcessor(new IntrospectionProcessor());
         $this->pushProcessor(new WebProcessor());
         $this->pushProcessor(new MemoryUsageProcessor());
         $this->pushProcessor(new MemoryPeakUsageProcessor());
-        $this->pushProcessor(new LaravelProcessor());
-        $this->pushProcessor(new ExtraProcessor($extra));
     }
 }
