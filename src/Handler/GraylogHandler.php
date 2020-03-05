@@ -2,64 +2,38 @@
 
 namespace Exolnet\Graylog\Handler;
 
-use Exolnet\Graylog\Processor\GraylogProcessor;
-use Monolog\Formatter\FormatterInterface;
-use Monolog\Formatter\GelfMessageFormatter;
-use Monolog\Handler\AbstractProcessingHandler;
+use Exolnet\Graylog\Processor\ExtraProcessor;
+use Exolnet\Graylog\Processor\LaravelProcessor;
+use Gelf\Publisher;
+use Gelf\Transport\UdpTransport;
+use Monolog\Handler\GelfHandler;
 use Monolog\Logger;
 use Monolog\Processor\IntrospectionProcessor;
 use Monolog\Processor\MemoryPeakUsageProcessor;
 use Monolog\Processor\MemoryUsageProcessor;
 use Monolog\Processor\WebProcessor;
-use RuntimeException;
 
-class GraylogHandler extends AbstractProcessingHandler
+class GraylogHandler extends GelfHandler
 {
     /**
-     * @var \Exolnet\Graylog\Publisher\GraylogPublisher the publisher object that sends the message to the server
-     */
-    protected $publisher;
-
-    /**
-     * GraylogHandler constructor.
-     * @param $publisher
      * @param string $host
      * @param int $port
      * @param int $level
      * @param array $extra
      */
-    public function __construct($publisher, string $host, int $port, $level = Logger::NOTICE, array $extra = [])
+    public function __construct(string $host, int $port, $level = Logger::NOTICE, array $extra = [])
     {
-        if (!class_exists($publisher)) {
-            throw new RuntimeException(
-                'Publisher class: ' . $publisher . ' does not exist!'
-            );
-        }
+        $transport = new UdpTransport($host, $port);
+        $publisher = new Publisher($transport);
 
-        parent::__construct($level, true);
+        parent::__construct($publisher, $level, true);
 
-        $this->publisher = new $publisher($host, $port);
-
+        // Processors will be called in the reverse order that they are listed below
+        $this->pushProcessor(new ExtraProcessor($extra));
+        $this->pushProcessor(new LaravelProcessor());
         $this->pushProcessor(new IntrospectionProcessor());
         $this->pushProcessor(new WebProcessor());
         $this->pushProcessor(new MemoryUsageProcessor());
         $this->pushProcessor(new MemoryPeakUsageProcessor());
-        $this->pushProcessor(new GraylogProcessor($extra));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function write(array $record): void
-    {
-        $this->publisher->publish($record['formatted']);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function getDefaultFormatter(): FormatterInterface
-    {
-        return new GelfMessageFormatter();
     }
 }
