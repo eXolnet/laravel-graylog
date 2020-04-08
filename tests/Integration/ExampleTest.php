@@ -1,6 +1,6 @@
 <?php
 
-namespace Exolnet\Skeleton\Tests\Integration;
+namespace Exolnet\Graylog\Tests\Integration;
 
 class ExampleTest extends TestCase
 {
