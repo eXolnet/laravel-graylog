@@ -1,6 +1,6 @@
 <?php
 
-namespace Exolnet\Skeleton\Tests\Unit;
+namespace Exolnet\Graylog\Tests\Unit;
 
 class ExampleTest extends UnitTest
 {

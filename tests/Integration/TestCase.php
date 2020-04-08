@@ -1,8 +1,8 @@
 <?php
 
-namespace Exolnet\Skeleton\Tests\Integration;
+namespace Exolnet\Graylog\Tests\Integration;
 
-use Exolnet\Skeleton\SkeletonServiceProvider;
+use Exolnet\Graylog\GraylogServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -15,7 +15,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            GraylogServiceProvider::class,
         ];
     }
 }
