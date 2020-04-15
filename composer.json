@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.2",
         "graylog2/gelf-php": "^1.5",
         "illuminate/contracts": "^6.0|^7.0",
         "illuminate/log": "^6.0|^7.0",
