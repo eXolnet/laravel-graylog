@@ -13,7 +13,7 @@ This package extends Laravel’s log package to add a graylog driver.
     ```
     composer require exolnet/laravel-graylog
     ```
-2. If you don't use package auto-discovery, add the service provider to the ``providers`` array in `config/app.php`:
+2. If you don't use package auto-discovery, add the service provider to the `providers` array in `config/app.php`:
 
     ```
     Exolnet\Graylog\GraylogServiceProvider::class
