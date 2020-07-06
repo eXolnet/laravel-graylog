@@ -7,6 +7,12 @@
 
 This package extends Laravel’s log package to add a graylog driver.
 
+## Configuration
+
+* Available transports: `udp`, `tcp` and `http`
+* The `secure` option can be enabled for `tcp` and `http`
+* The `path` option is only used for `http`
+
 ## Installation
 
 1. Require this package with composer:
@@ -25,8 +31,11 @@ This package extends Laravel’s log package to add a graylog driver.
         'driver' => 'graylog',
         'level' => 'notice',
         'handler_with' => [
+            'transport' => env('GRAYLOG_TRANSPORT', 'http'),
+            'secure' => env('GRAYLOG_SECURE', true),
             'host' => env('GRAYLOG_HOST', 'localhost'),
             'port' => env('GRAYLOG_PORT', 12201),
+            'path' => env('GRAYLOG_PATH', '/gelf'),
             'extra' => [
                 //
             ]
