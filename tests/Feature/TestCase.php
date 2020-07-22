@@ -1,6 +1,6 @@
 <?php
 
-namespace Exolnet\Graylog\Tests\Integration;
+namespace Exolnet\Graylog\Tests\Feature;
 
 use Exolnet\Graylog\GraylogServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
