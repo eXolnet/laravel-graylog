@@ -7,12 +7,6 @@
 
 This package extends Laravel’s log package to add a graylog driver.
 
-## Configuration
-
-* Available transports: `udp`, `tcp` and `http`
-* The `secure` option can be enabled for `tcp` and `http`
-* The `path` option is only used for `http`
-
 ## Installation
 
 1. Require this package with composer:
@@ -31,8 +25,7 @@ This package extends Laravel’s log package to add a graylog driver.
         'driver' => 'graylog',
         'level' => 'notice',
         'handler_with' => [
-            'transport' => env('GRAYLOG_TRANSPORT', 'http'),
-            'secure' => env('GRAYLOG_SECURE', true),
+            'transport' => env('GRAYLOG_TRANSPORT', 'udp'),
             'host' => env('GRAYLOG_HOST', 'localhost'),
             'port' => env('GRAYLOG_PORT', 12201),
             'path' => env('GRAYLOG_PATH', '/gelf'),
@@ -43,6 +36,20 @@ This package extends Laravel’s log package to add a graylog driver.
     ],
     ```
 4. Change your `LOG_CHANNEL` for `graylog` or add it to your stack in the `logging.php` configuration file
+
+## Usage
+
+### Supported Transports
+
+The following transports are supported: `udp`, `tcp`, `ssl`, `http` and `https`. Select the transport accordingly to
+your Graylog set up using the `GRAYLOG_TRANSPORT` configuration. By default, the `udp` transport is used.
+
+The default path for `http` and `https` transports is `/gelf`. This value can be configured using the `GRAYLOG_PATH`
+configuration.
+
+```
+GRAYLOG_PATH=/gelf
+```
 
 ## Testing
 

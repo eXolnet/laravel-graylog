@@ -19,7 +19,6 @@ class GraylogServiceProvider extends ServiceProvider
                 'handler' => GraylogHandler::class,
                 'handler_with' => [
                     'transport' => 'udp',
-                    'secure' => true,
                     'host' => 'localhost',
                     'port' => 12201,
                     'path' => '/gelf',
