@@ -39,9 +39,6 @@ This package extends Laravel’s log package to add a graylog driver.
 
 ## Usage
 
-Once installed, errors occurring in your code with a level higher or equals to the `GRAYLOG_LEVEL` will be sent to
-the specified Graylog instance. You’ll then be able to centralize all your logs in one place.
-
 ### Supported Transports
 
 The following transports are supported: `udp`, `tcp`, `ssl`, `http` and `https`. Select the transport accordingly to
