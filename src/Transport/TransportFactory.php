@@ -4,6 +4,7 @@ namespace Exolnet\Graylog\Transport;
 
 use Gelf\Transport\AbstractTransport;
 use Gelf\Transport\HttpTransport;
+use Gelf\Transport\KeepAliveRetryTransportWrapper;
 use Gelf\Transport\SslOptions;
 use Gelf\Transport\TcpTransport;
 use Gelf\Transport\UdpTransport;
@@ -77,21 +78,25 @@ class TransportFactory
      * @param string $host
      * @param int|null $port
      * @param string|null $path
-     * @return \Gelf\Transport\HttpTransport
+     * @return \Gelf\Transport\KeepAliveRetryTransportWrapper
      */
-    protected static function makeHttpTransport(string $host, int $port, ?string $path): HttpTransport
+    protected static function makeHttpTransport(string $host, int $port, ?string $path): KeepAliveRetryTransportWrapper
     {
-        return new HttpTransport($host, $port, $path ?? HttpTransport::DEFAULT_PATH);
+        return new KeepAliveRetryTransportWrapper(
+            new HttpTransport($host, $port, $path ?? HttpTransport::DEFAULT_PATH)
+        );
     }
 
     /**
      * @param string $host
      * @param int|null $port
      * @param string|null $path
-     * @return \Gelf\Transport\HttpTransport
+     * @return \Gelf\Transport\KeepAliveRetryTransportWrapper
      */
-    protected static function makeHttpsTransport(string $host, int $port, ?string $path): HttpTransport
+    protected static function makeHttpsTransport(string $host, int $port, ?string $path): KeepAliveRetryTransportWrapper
     {
-        return new HttpTransport($host, $port, $path ?? HttpTransport::DEFAULT_PATH, new SslOptions());
+        return new KeepAliveRetryTransportWrapper(
+            new HttpTransport($host, $port, $path ?? HttpTransport::DEFAULT_PATH, new SslOptions())
+        );
     }
 }

@@ -4,6 +4,7 @@ namespace Exolnet\Graylog\Tests\Unit\Transport;
 
 use Exolnet\Graylog\Transport\TransportFactory;
 use Gelf\Transport\HttpTransport;
+use Gelf\Transport\KeepAliveRetryTransportWrapper;
 use Gelf\Transport\TcpTransport;
 use Gelf\Transport\UdpTransport;
 use PHPUnit\Framework\TestCase;
@@ -69,7 +70,8 @@ class TransportFactoryTest extends TestCase
     {
         $transport = $this->factory->make('http', '127.0.0.1', 12001, '/gelf');
 
-        $this->assertInstanceOf(HttpTransport::class, $transport);
+        $this->assertInstanceOf(KeepAliveRetryTransportWrapper::class, $transport);
+        $this->assertInstanceOf(HttpTransport::class, $transport->getTransport());
     }
 
     /**
@@ -80,6 +82,7 @@ class TransportFactoryTest extends TestCase
     {
         $transport = $this->factory->make('https', '127.0.0.1', 12001, '/gelf');
 
-        $this->assertInstanceOf(HttpTransport::class, $transport);
+        $this->assertInstanceOf(KeepAliveRetryTransportWrapper::class, $transport);
+        $this->assertInstanceOf(HttpTransport::class, $transport->getTransport());
     }
 }
