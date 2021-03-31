@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/eXolnet/laravel-graylog/v/stable?format=flat-square)](https://packagist.org/packages/eXolnet/laravel-graylog)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/eXolnet/laravel-graylog/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/laravel-graylog)
+[![Build Status](https://img.shields.io/github/workflow/status/eXolnet/laravel-graylog/tests?label=tests&style=flat-square)](https://github.com/eXolnet/laravel-graylog/actions?query=workflow%3Atests)
 [![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/laravel-graylog.svg?style=flat-square)](https://packagist.org/packages/eXolnet/laravel-graylog)
 
 This package extends Laravel’s log package to add a graylog driver.
@@ -25,10 +25,10 @@ This package extends Laravel’s log package to add a graylog driver.
         'driver' => 'graylog',
         'level' => 'notice',
         'handler_with' => [
-            'transport' => env('GRAYLOG_TRANSPORT', 'udp'),
-            'host' => env('GRAYLOG_HOST', 'localhost'),
-            'port' => env('GRAYLOG_PORT', 12201),
-            'path' => env('GRAYLOG_PATH', '/gelf'),
+            'transport' => env('LOG_GRAYLOG_TRANSPORT', 'udp'),
+            'host' => env('LOG_GRAYLOG_HOST', 'localhost'),
+            'port' => env('LOG_GRAYLOG_PORT', 12201),
+            'path' => env('LOG_GRAYLOG_PATH', '/gelf'),
             'extra' => [
                 //
             ]
