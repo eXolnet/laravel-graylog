@@ -7,6 +7,7 @@ use Gelf\Transport\HttpTransport;
 use Gelf\Transport\KeepAliveRetryTransportWrapper;
 use Gelf\Transport\TcpTransport;
 use Gelf\Transport\UdpTransport;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,6 +28,17 @@ class TransportFactoryTest extends TestCase
         parent::setUp();
 
         $this->factory = new TransportFactory();
+    }
+
+    /**
+     * @return void
+     * @test
+     */
+    public function testInvalidTransport(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        $this->factory->make('invalid', '127.0.0.1', 12001);
     }
 
     /**
