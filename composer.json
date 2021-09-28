@@ -21,9 +21,9 @@
     "require": {
         "php": "^7.3|^8.0",
         "graylog2/gelf-php": "^1.7",
-        "illuminate/contracts": "^6.0|^7.0|^8.0",
-        "illuminate/log": "^6.0|^7.0|^8.0",
-        "illuminate/support": "^6.0|^7.0|^8.0",
+        "illuminate/contracts": "^6.10|^7.0|^8.0",
+        "illuminate/log": "^6.10|^7.0|^8.0",
+        "illuminate/support": "^6.10|^7.0|^8.0",
         "monolog/monolog": "^1.24|^2.0"
     },
     "require-dev": {
