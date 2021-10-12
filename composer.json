@@ -27,6 +27,7 @@
         "monolog/monolog": "^1.24|^2.0"
     },
     "require-dev": {
+        "exolnet/phpcs-config": "^2.0",
         "mockery/mockery": "^1.4",
         "orchestra/testbench": "^4.0|^5.0|^6.0",
         "phpunit/phpunit": "^9.3.3",
@@ -43,8 +44,8 @@
         }
     },
     "scripts": {
-        "lint": "vendor/bin/phpcs -p --standard=PSR2 src tests",
-        "lint-fix": "vendor/bin/phpcbf -p --standard=PSR2 src tests",
+        "lint": "vendor/bin/phpcs -p -s --standard=ruleset.xml",
+        "lint-fix": "vendor/bin/phpcbf -p --standard=ruleset.xml",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
