@@ -10,17 +10,20 @@ This package extends Laravel’s log package to add a graylog driver.
 ## Installation
 
 1. Require this package with composer:
-    ```
+
+    ```bash
     composer require exolnet/laravel-graylog
     ```
+
 2. If you don't use package auto-discovery, add the service provider to the `providers` array in `config/app.php`:
 
-    ```
+    ```php
     Exolnet\Graylog\GraylogServiceProvider::class
     ```
+
 3. Add a graylog channel in your `logging.php` configuration file:
 
-    ```
+    ```php
     'graylog' => [
         'driver' => 'graylog',
         'level' => 'notice',
@@ -35,6 +38,7 @@ This package extends Laravel’s log package to add a graylog driver.
         ],
     ],
     ```
+
 4. Change your `LOG_CHANNEL` for `graylog` or add it to your stack in the `logging.php` configuration file
 
 ## Usage
@@ -55,7 +59,7 @@ GRAYLOG_PATH=/gelf
 
 To run the phpUnit tests, please use:
 
-``` bash
+```bash
 composer test
 ```
 
