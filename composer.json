@@ -10,7 +10,11 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Patrick Gagnon-Renaud",
+            "name": "Alexandre D'Eschambeault",
+            "email": "adeschambeault@exolnet.com"
+        },
+        {
+            "name": "Pat Gagnon-Renaud",
             "email": "pgrenaud@exolnet.com"
         },
         {
