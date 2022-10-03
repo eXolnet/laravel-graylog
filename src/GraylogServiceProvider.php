@@ -4,7 +4,6 @@ namespace Exolnet\Graylog;
 
 use Exolnet\Graylog\Handler\GraylogHandler;
 use Illuminate\Log\LogManager;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Formatter\GelfMessageFormatter;
 
