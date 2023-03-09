@@ -31,6 +31,8 @@
         "monolog/monolog": "^2.0|^3.3"
     },
     "require-dev": {
+        "ext-sockets": "*",
+        "ext-zlib": "*",
         "exolnet/phpcs-config": "^2.0",
         "laravel/pint": "^1.2",
         "mockery/mockery": "^1.4",
