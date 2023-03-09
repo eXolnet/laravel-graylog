@@ -63,4 +63,28 @@ class GraylogDriverTest extends TestCase
 
         $this->assertInstanceOf(GraylogHandler::class, $handlers[0] ?? null);
     }
+
+    /**
+     * @return void
+     * @test
+     */
+    public function testLogging(): void
+    {
+        $socket = socket_create(AF_INET, SOCK_DGRAM, 0);
+        socket_bind($socket, '127.0.0.1', 12201);
+
+        $this->channel->info('Test message');
+
+        socket_recvfrom($socket, $buffer, 1024, 0, $remoteIp, $remotePort);
+
+        $json = json_decode(gzuncompress($buffer), true);
+
+        $this->assertEquals('1.0', $json['version']);
+        $this->assertEquals('Test message', $json['short_message']);
+        $this->assertEquals(6, $json['level']);
+        $this->assertEquals('laravel', $json['_app']);
+        $this->assertEquals('INFO', $json['_level_name']);
+        $this->assertEquals('testing', $json['_env']);
+        $this->assertEquals('Symfony', $json['_user_agent']);
+    }
 }

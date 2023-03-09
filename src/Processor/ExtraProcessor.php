@@ -2,19 +2,20 @@
 
 namespace Exolnet\Graylog\Processor;
 
+use Monolog\LogRecord;
 use Monolog\Processor\ProcessorInterface;
 
 class ExtraProcessor implements ProcessorInterface
 {
     /**
-     * @var array
+     * @var array|\Monolog\LogRecord
      */
-    protected $config;
+    protected array|LogRecord $config;
 
     /**
      * @param array $config
      */
-    public function __construct(array $config)
+    public function __construct(array|LogRecord $config)
     {
         $this->config = $config;
     }
@@ -22,7 +23,7 @@ class ExtraProcessor implements ProcessorInterface
     /**
      * {@inheritDoc}
      */
-    public function __invoke(array $record)
+    public function __invoke(array|LogRecord $record)
     {
         foreach ($this->config as $extraKey => $extra) {
             $record['extra'][$extraKey] = $extra;
