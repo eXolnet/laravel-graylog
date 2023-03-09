@@ -17,7 +17,6 @@ class GraylogHandler extends GelfHandler
 {
     /**
      * @param string $transport
-     * @param bool   $secure
      * @param string $host
      * @param int    $port
      * @param string $path

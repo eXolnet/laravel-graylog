@@ -28,9 +28,11 @@
         "illuminate/contracts": "^9.0|^10.0",
         "illuminate/log": "^9.0|^10.0",
         "illuminate/support": "^9.0|^10.0",
-        "monolog/monolog": "^1.24|^2.0"
+        "monolog/monolog": "^2.0|^3.3"
     },
     "require-dev": {
+        "ext-sockets": "*",
+        "ext-zlib": "*",
         "exolnet/phpcs-config": "^2.0",
         "laravel/pint": "^1.2",
         "mockery/mockery": "^1.4",
