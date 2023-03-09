@@ -1,7 +1,7 @@
 # laravel-graylog
 
 [![Latest Stable Version](https://poser.pugx.org/eXolnet/laravel-graylog/v/stable?format=flat-square)](https://packagist.org/packages/eXolnet/laravel-graylog)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/eXolnet/laravel-graylog/tests.yml?label=tests&style=flat-square)](https://github.com/eXolnet/laravel-graylog/actions?query=workflow%3Atests)
 [![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/laravel-graylog.svg?style=flat-square)](https://packagist.org/packages/eXolnet/laravel-graylog)
 
