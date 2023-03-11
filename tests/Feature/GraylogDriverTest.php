@@ -75,7 +75,7 @@ class GraylogDriverTest extends TestCase
 
         $this->channel->info('Test message');
 
-        socket_recvfrom($socket, $buffer, 1024, 0, $remoteIp, $remotePort);
+        socket_recvfrom($socket, $buffer, 1024, MSG_DONTWAIT, $remoteIp, $remotePort);
 
         $json = json_decode(gzuncompress($buffer), true);
 
