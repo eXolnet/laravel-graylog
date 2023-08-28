@@ -7,7 +7,7 @@ use Exolnet\Graylog\Processor\LaravelProcessor;
 use Exolnet\Graylog\Transport\TransportFactory;
 use Gelf\Publisher;
 use Monolog\Handler\GelfHandler;
-use Monolog\Logger;
+use Monolog\Level;
 use Monolog\Processor\IntrospectionProcessor;
 use Monolog\Processor\MemoryPeakUsageProcessor;
 use Monolog\Processor\MemoryUsageProcessor;
@@ -20,7 +20,7 @@ class GraylogHandler extends GelfHandler
      * @param string $host
      * @param int    $port
      * @param string $path
-     * @param int    $level
+     * @param Level  $level
      * @param array  $extra
      */
     public function __construct(
@@ -28,7 +28,7 @@ class GraylogHandler extends GelfHandler
         string $host,
         int $port,
         string $path,
-        $level = Logger::NOTICE,
+        Level $level = Level::Notice,
         array $extra = []
     ) {
         $transport = $this->getTransportFactory()->make($transport, $host, $port, $path);
