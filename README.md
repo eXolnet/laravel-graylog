@@ -74,7 +74,7 @@ If you discover any security related issues, please email security@exolnet.com i
 ## Credits
 
 - [Simon Gaudreau](https://github.com/Gandhi11)
-- [Pat Gagnon-Renaud](https://github.com/pgrenaud)
+- [Patricia Gagnon-Renaud](https://github.com/pgrenaud)
 - [Alexandre D'Eschambeault](https://github.com/xel1045)
 - [All Contributors](../../contributors)
 
