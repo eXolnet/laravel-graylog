@@ -2,18 +2,18 @@
 
 namespace Exolnet\Graylog\Tests\Unit\Transport;
 
+use Exolnet\Graylog\Tests\Unit\UnitTestCase;
 use Exolnet\Graylog\Transport\TransportFactory;
 use Gelf\Transport\HttpTransport;
 use Gelf\Transport\KeepAliveRetryTransportWrapper;
 use Gelf\Transport\TcpTransport;
 use Gelf\Transport\UdpTransport;
 use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Exolnet\Graylog\Transport\TransportFactory
  */
-class TransportFactoryTest extends TestCase
+class TransportFactoryTest extends UnitTestCase
 {
     /**
      * @var \Exolnet\Graylog\Transport\TransportFactory
