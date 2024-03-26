@@ -25,9 +25,9 @@
     "require": {
         "php": "^8.1",
         "graylog2/gelf-php": "^1.7",
-        "illuminate/contracts": "^9.0|^10.0",
-        "illuminate/log": "^9.0|^10.0",
-        "illuminate/support": "^9.0|^10.0",
+        "illuminate/contracts": "^10.0",
+        "illuminate/log": "^10.0",
+        "illuminate/support": "^10.0",
         "monolog/monolog": "^2.0|^3.3"
     },
     "require-dev": {
@@ -36,7 +36,7 @@
         "exolnet/phpcs-config": "^2.0",
         "laravel/pint": "^1.2",
         "mockery/mockery": "^1.4",
-        "orchestra/testbench": "^7.0|^8.0",
+        "orchestra/testbench": "^8.0",
         "phpunit/phpunit": "^9.3.3",
         "squizlabs/php_codesniffer": "^3.6"
     },
