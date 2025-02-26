@@ -35,7 +35,6 @@ class GraylogDriverTest extends TestCase
 
     /**
      * @return void
-     * @test
      */
     public function testIsAnIlluminateLogger(): void
     {
@@ -44,7 +43,6 @@ class GraylogDriverTest extends TestCase
 
     /**
      * @return void
-     * @test
      */
     public function testUseAMonologDriver(): void
     {
@@ -53,7 +51,6 @@ class GraylogDriverTest extends TestCase
 
     /**
      * @return void
-     * @test
      */
     public function testUseGraylogHandler(): void
     {
@@ -66,7 +63,6 @@ class GraylogDriverTest extends TestCase
 
     /**
      * @return void
-     * @test
      */
     public function testLogging(): void
     {

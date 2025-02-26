@@ -12,7 +12,6 @@ class ExtraProcessorTest extends TestCase
 {
     /**
      * @return void
-     * @test
      */
     public function testInvoke(): void
     {
