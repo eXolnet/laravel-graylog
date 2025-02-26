@@ -12,7 +12,6 @@ class LaravelProcessorTest extends TestCase
 {
     /**
      * @return void
-     * @test
      */
     public function testInvoke(): void
     {
